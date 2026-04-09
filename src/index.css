@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-700 rounded-full; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  .btn-ghost {
+    @apply text-gray-400 hover:text-gray-100 hover:bg-gray-800 px-3 py-2 rounded-lg
+           transition-all duration-200 focus:outline-none;
+  }
+  .input-field {
+    @apply w-full bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500
+           rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500
+           focus:border-transparent transition-all duration-200;
+  }
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-xl;
+  }
+}
+
+/* Typing dots animation */
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40%           { opacity: 1; }
+}
+.dot { animation: blink 1.4s infinite both; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Message fade-in */
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.msg-anim { animation: msg-in 0.25s ease both; }
